@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  height: 100vh;
+  color: #333;
+  background: linear-gradient(to top left, #4b72ff 0%, #f79151 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* LAYOUT */
+main {
+  position: relative;
+  width: 90vw;
+  height: 60rem;
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(200px);
+  /* filter: blur(2px); */
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+}
+/* section */
+.player {
+  flex-basis: 50%;
+  padding: 7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.75s;
+}
+
+/* ELEMENTS */
+.name {
+  position: relative;
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 0 0 10px #fff;
+}
+
+.name::after {
+  position: relative;
+  content: var(--content, 'current player');
+  text-transform: lowercase;
+  font-size: var(--font, 1.5rem);
+  display: var(--display, none);
+}
+
+.score {
+  font-size: 8rem;
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: auto;
+}
+
+.player--active {
+  background-color: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(to top right, #122464 20%, #f79151 100%);
+}
+.player--active .name {
+  font-weight: 700;
+}
+.player--active .score {
+  font-weight: 400;
+}
+
+.player--active .current {
+  opacity: 1;
+}
+
+.current {
+  background: rgb(165, 163, 185);
+  opacity: 0.3;
+  border-radius: 3rem;
+  color: black;
+  width: 60%;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.75s;
+  box-shadow: 0 0 5px 5px #fff;
+}
+
+.current-label {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  color: black;
+}
+
+.current-score {
+  font-size: 3.5rem;
+}
+
+/* ABSOLUTE POSITIONED ELEMENTS */
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.8rem;
+  text-shadow: 0 0 5px #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+
+  background-color: rgba(20, 19, 19, 0.6);
+
+  backdrop-filter: blur(10px);
+
+  padding: 0.7rem 2.5rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.9);
+  transition: 0.5s ease-in-out;
+}
+
+.btn::first-letter {
+  font-size: 2.4rem;
+  display: inline-block;
+  margin-right: 0.7rem;
+}
+.btn:hover {
+  background: linear-gradient(to top left, #122464 20%, #f79151);
+  box-shadow: 0 0.8rem 0.8rem #fff;
+}
+
+.btn--new {
+  top: 4rem;
+}
+.btn--roll {
+  top: 39.3rem;
+}
+.btn--hold {
+  top: 46.1rem;
+}
+
+.btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.dice {
+  position: absolute;
+  left: 50%;
+  top: 16.5rem;
+  transform: translateX(-50%);
+  filter: hue-rotate(253deg);
+  height: 10rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+.player--winner {
+  /* background-color: #2f2f2f; */
+  background-color: rgb(8, 8, 44);
+}
+
+.player--winner .name {
+  font-weight: 700;
+  color: #fff;
+}
+.player--winner .current {
+  background-color: #fff;
+  opacity: 1;
+  box-shadow: 0 0 5px 5px black;
+}
+
+.hidden {
+  display: none;
+}
+.me {
+  position: absolute;
+  top: 95%;
+
+  font-size: 1rem;
+  color: #fff;
+  text-shadow: 0 0 5px #fff;
+}
+@media only screen and (max-width: 834px) {
+  html {
+    font-size: 50%;
+  }
+  .name {
+    font-size: 3.5rem;
+  }
+  .btn {
+    padding: 0.4rem 1.5rem;
+  }
+}
+@media only screen and (max-width: 614px) {
+  html {
+    font-size: 40%;
+  }
+  .name {
+    font-size: 3rem;
+  }
+  .btn {
+    padding: 0.3rem 1.2rem;
+  }
+}
+@media only screen and (max-width: 464px) {
+  html {
+    font-size: 35%;
+  }
+  .name {
+    font-size: 2rem;
+  }
+}
